@@ -1,0 +1,72 @@
+﻿<Page
+    x:Class="CMC_WinUI.Views.ConvertionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Style="{StaticResource PageStyle}"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style x:Key="ButtonStyle1" TargetType="Button">
+            <Setter Property="Background" Value="{ThemeResource ButtonRevealBackground}"/>
+            <Setter Property="Foreground" Value="{ThemeResource ButtonForeground}"/>
+            <Setter Property="BorderBrush" Value="{ThemeResource ButtonRevealBorderBrush}"/>
+            <Setter Property="BorderThickness" Value="{ThemeResource ButtonRevealBorderThemeThickness}"/>
+            <Setter Property="Padding" Value="{ThemeResource ButtonPadding}"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
+            <Setter Property="UseSystemFocusVisuals" Value="{StaticResource UseSystemFocusVisuals}"/>
+            <Setter Property="FocusVisualMargin" Value="-3"/>
+        </Style>
+    </Page.Resources>
+    <Grid x:ConnectionId='2' x:Name="ContentArea" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer HorizontalAlignment="Center" Height="Auto" Grid.RowSpan="3" VerticalAlignment="Top" Width="Auto">
+            <Grid>
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="0" Margin="0,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="36"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Margin="10,0,0,0" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="30" FontWeight="Normal" Text="1. bid 파일 업로드" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5" Height="33" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+                    <Button x:ConnectionId='9' FontFamily="/Assets/ChosunBg.TTF#조선견고딕" x:Name="BidUploadButton"                               Style="{StaticResource AccentButtonStyle}" RenderTransformOrigin="1.59,0.399" Content="Upload" Margin="0,3,10,0" Height="30" Width="80" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                    <TextBox x:ConnectionId='10' Grid.Row ="1" x:Name="BidList" PlaceholderText="파일을 업로드 해주세요." IsReadOnly="True" TextWrapping="Wrap" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Style="{StaticResource AutoSuggestBoxTextBoxStyle}" RenderTransformOrigin="1.699,1.561" Margin="10,20,10,0" Height="200"  Width="480" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Grid>
+                <Grid VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,300,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="36"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Margin="10,0,0,0" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="30" FontWeight="Normal" Text="2. 조사내역서(.xls) 업로드" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5" Height="33" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+                    <Button x:ConnectionId='7' FontFamily="/Assets/ChosunBg.TTF#조선견고딕" x:Name="XlsUploadButton" Content="Upload"                               Style="{StaticResource AccentButtonStyle}" Height="30" Width=" 80" Margin="0,3,10,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                    <TextBox x:ConnectionId='8' Grid.Row ="1" x:Name="XlsList" PlaceholderText="파일을 업로드 해주세요." IsReadOnly="True" TextWrapping="Wrap" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin= "10,20,10,0" Height="200" Width="480" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+                <Grid VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,600,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="36"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="480">
+                        <TextBlock FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="30" FontWeight="Normal" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5" Height="33" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"><Run Text="3. "/><Run Text="단가 세팅"/></TextBlock>
+                        <TextBlock x:ConnectionId='4' Name="ConvertingTextBlock" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="12" FontWeight="Normal" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="Auto" Margin="280,10,0,0" Visibility="Collapsed"><Run Text="변환중입니다..."/></TextBlock>
+                        <Button x:ConnectionId='5' FontFamily="/Assets/ChosunBg.TTF#조선견고딕" x:Name="ConvertButton" Content="단가 세팅"                             Height="30" Width="80" Margin="0,3,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{StaticResource AccentButtonStyle}" />
+                        <ProgressRing x:ConnectionId='6' Name="ProgressRing" Height="30" Width="30"/>
+                    </Grid>
+                    <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="480" Margin="0,30,0,30">
+                        <TextBlock FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="30" FontWeight="Normal" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5" Height="33" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"><Run Text="4. 초기화"/><LineBreak/><Run/></TextBlock>
+                        <Button x:ConnectionId='3' FontFamily="/Assets/ChosunBg.TTF#조선견고딕" x:Name="InitButton" Content="초기화"                          Height="30" Width="80" Margin="0,3,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{StaticResource AccentButtonStyle}" />
+                    </Grid>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>
+

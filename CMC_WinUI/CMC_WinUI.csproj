@@ -81,7 +81,6 @@
     <None Remove="Views\ConvertionPage.xaml" />
     <None Remove="Views\ResultPage.xaml" />
     <None Remove="Views\SettingsPage.xaml" />
-    <None Remove="Views\ShellPage.xaml" />
     <None Remove="Views\VerificationPage.xaml" />
   </ItemGroup>
 
@@ -201,9 +200,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SettingsPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\ShellPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\VerificationPage.xaml">

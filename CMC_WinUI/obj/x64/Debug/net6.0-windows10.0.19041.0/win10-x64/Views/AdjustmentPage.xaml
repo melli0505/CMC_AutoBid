@@ -1,0 +1,125 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:Custom="using:Windows.Globalization.NumberFormatting"
+    x:Class="CMC_WinUI.Views.AdjustmentPage"
+    Style="{StaticResource PageStyle}"
+    mc:Ignorable="d">
+    <Grid x:ConnectionId='2' x:Name="ContentArea" Height="Auto" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ScrollViewer Height="Auto" VerticalAlignment="Top" Width="Auto">
+            <Grid Height="Auto" Width="Auto" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row ="0" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="Auto" Margin="0,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,0,30" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="30" FontWeight="Normal" Text="1. 입찰내역 생성옵션" TextWrapping="Wrap" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Center" Width="Auto"/>
+                </Grid>
+                <Grid Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="Auto" Height="Auto" Margin="0,0,0,30">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="5,0,0,0" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="15" FontWeight="Normal" Text="단가소수처리" TextWrapping="Wrap" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="5,0,0,0" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="15" FontWeight="Normal" Text="표준시장단가" TextWrapping="Wrap" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="5,0,5,0" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="15" FontWeight="Normal" Text="공종가중치 0%" TextWrapping="Wrap" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Margin="5,0,20,0" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="15" FontWeight="Normal" Text="원가 법정요율" TextWrapping="Wrap" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Margin="5,0,0,0" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="15" FontWeight="Normal" Text="투찰금액 원단위" TextWrapping="Wrap" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+                    <TextBlock Grid.Row="3" Grid.Column="2" Margin="5,0,0,0" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="15" FontWeight="Normal" Text="노무비 하한율" TextWrapping="Wrap" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+                    <RadioButton x:ConnectionId='14' Grid.Row="1" Grid.Column="1" x:Name="RadioDecimal" IsChecked="True"                                />
+                    <TextBlock Grid.Row="1" Grid.Column="1" Margin="115,0,0,0" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="11" FontWeight="Normal" Text="정수" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+                    <RadioButton x:ConnectionId='15' Grid.Row="1" Grid.Column="1" x:Name="RadioInteger" Margin="90,0,0,0"                               />
+                    <TextBlock Grid.Row="1" Grid.Column="1" Margin="30,0,0,0" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="11" FontWeight="Normal" Text="소수 1자리" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+                    <CheckBox x:ConnectionId='16' Grid.Row="2" Grid.Column="1" x:Name="CheckStandardPrice"                                 />
+                    <TextBlock Grid.Row="2" Grid.Column="1" Margin="30,0,0,0" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="11" FontWeight="Normal" Text="0.3% 적용" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+                    <CheckBox x:ConnectionId='17' Grid.Row="3" Grid.Column="1" x:Name="CheckWeightValue"                                />
+                    <TextBlock Grid.Row="3" Grid.Column="1" Margin="30,0,0,0" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="11" FontWeight="Normal" Text="최소단가(50%) 적용" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+                    <CheckBox x:ConnectionId='18' Grid.Row="1" Grid.Column="3" x:Name="CheckCAD"                        />
+                    <TextBlock Grid.Row="1" Grid.Column="3" Margin="30,0,0,0" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="11" FontWeight="Normal" Text="0.3% 적용" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+                    <CheckBox x:ConnectionId='19' Grid.Row="2" Grid.Column="3" x:Name="CheckCeiling"                           />
+                    <TextBlock Grid.Row="2" Grid.Column="3" Margin="30,0,0,0" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="12" FontWeight="Normal" Text="천원 절상" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+                    <CheckBox x:ConnectionId='20' Grid.Row="3" Grid.Column="3" x:Name="CheckLaborCost"                             />
+                    <TextBlock Grid.Row="3" Grid.Column="3" Margin="30,0,0,0" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="12" FontWeight="Normal" Text="80% 적용" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+                </Grid>
+                <Grid Grid.Row ="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="Auto" Height="Auto" Margin="0,0,0,30">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Margin="5,0,0,30" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="30" FontWeight="Normal" Text="2. 사정율 대입" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Width="Auto"/>
+                    <muxc:NumberBox x:ConnectionId='11' x:Name="BalanceRateBox"
+                        Grid.Row="1"
+                        PlaceholderText="업체 평균 사정율 (-2% ~ +2%)"
+                        Width="480"
+                        VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,0,10,10" SpinButtonPlacementMode="Inline" Maximum="2" Minimum="-2"
+                        SmallChange="0.01"                                            Header="업체 평균 사정율" />
+                    <muxc:NumberBox x:ConnectionId='12' x:Name="PersonalRateBox"
+                        Grid.Row="2"
+                        PlaceholderText="나의 예가 사정율 (-2% ~ +2%)"
+                        Width="480"
+                        VerticalAlignment="Top" HorizontalAlignment="Center"  Margin="5,0,10,10" SpinButtonPlacementMode="Inline" Maximum="2" Minimum="-2"
+                        SmallChange="0.01"                                             Header="나의 예가 사정율" />
+                    <Button x:ConnectionId='13' Grid.Row="3" x:Name="CalculateButton" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" Content="계산"                               Width="480" Style="{StaticResource AccentButtonStyle}" VerticalAlignment="Top" Margin="5,10,10,0" HorizontalAlignment="Center" />
+                </Grid>
+                <Grid x:ConnectionId='3' x:Name="SaveResult" Grid.Row="4" Height="Auto" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Margin="5,0,0,30" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" FontSize="30" FontWeight="Normal" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Width="Auto" Text="3. 결과 저장"/>
+                    <Button x:ConnectionId='8' Grid.Row="1" Margin="5,0,10,10" x:Name="SaveBidButton" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" Content="BID 파일 저장"                             Width="480" Height="30" Style="{StaticResource AccentButtonStyle}" VerticalAlignment="Center"/>
+                    <Button x:ConnectionId='9' Grid.Row="2" Margin="5,0,10,10" x:Name="SaveCostButton" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" Content="원가계산서(사정율 적용) 저장" Height ="30" Width="480"                              Style="{StaticResource AccentButtonStyle}" VerticalAlignment="Center"/>
+                    <Button x:ConnectionId='10' Grid.Row="3" Margin="5,0,10,10" x:Name="SaveBiddingZipButton" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" Content="입찰내역 zip 파일 저장" Height ="30"                                    Width="480" Style="{StaticResource AccentButtonStyle}" VerticalAlignment="Center"/>
+                </Grid>
+                <Grid Grid.Row ="3" Height="Auto" Width="480" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-5,0,0,30">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,10">
+                        <TextBlock FontFamily="/Assets/ChosunBg.TTF#조선견고딕" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="고정금액비율"/>
+                        <TextBox x:ConnectionId='7' FontFamily="/Assets/ChosunBg.TTF#조선견고딕" x:Name="FixedPercentPrice" Margin="149,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="300" Grid.ColumnSpan="2" IsReadOnly="True"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Margin="0,0,0,10" Grid.ColumnSpan="2">
+                        <TextBlock FontFamily="/Assets/ChosunBg.TTF#조선견고딕" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"><Run Text="최저네고단가율"/></TextBlock>
+                        <TextBox x:ConnectionId='6' FontFamily="/Assets/ChosunBg.TTF#조선견고딕" x:Name="MyPercent" Margin="149,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="300" Grid.ColumnSpan="2" IsReadOnly="True"/>
+                    </Grid>
+                    <Grid Grid.Row="2" Margin="0,0,0,10" Grid.ColumnSpan="2">
+                        <TextBlock FontFamily="/Assets/ChosunBg.TTF#조선견고딕" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="도급비계"/>
+                        <TextBox x:ConnectionId='5' FontFamily="/Assets/ChosunBg.TTF#조선견고딕" x:Name="TargetRate" Margin="149,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="300" Grid.ColumnSpan="2" IsReadOnly="True"/>
+                    </Grid>
+                    <Button x:ConnectionId='4' Grid.Row="4" Margin="0,10,0,0" x:Name="ShowResult" FontFamily="/Assets/ChosunBg.TTF#조선견고딕" Content="세부 결과 확인"                          Width="480" Height="30" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Left" />
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>
+

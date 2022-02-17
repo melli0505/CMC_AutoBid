@@ -159,7 +159,8 @@ namespace CMC_WinUI.Views
         // ------------------ 단가세팅 버튼 -------------------------------------------------------------------------------------------------------------------------------------------------- //
         private async void ConvertButton_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
-            ShowProgressRing();
+// TODO : progressring 주석처리함
+//            ShowProgressRing();
             if (Data.XlsFiles == null || Data.BidFile == null)
             {
                 HideProgressRing();

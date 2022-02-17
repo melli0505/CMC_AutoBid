@@ -1,2 +1,12 @@
 App.xbf
 MainWindow.xbf
+Styles\_Colors.xbf
+Styles\_FontSizes.xbf
+Styles\_Thickness.xbf
+Styles\Page.xbf
+Styles\TextBlock.xbf
+Views\AdjustmentPage.xbf
+Views\ConvertionPage.xbf
+Views\ResultPage.xbf
+Views\SettingsPage.xbf
+Views\VerificationPage.xbf
