@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CMC_AutoBid (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "CMC_AutoBid (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

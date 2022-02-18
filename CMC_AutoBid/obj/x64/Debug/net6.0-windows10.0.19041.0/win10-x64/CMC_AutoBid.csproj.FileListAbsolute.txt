@@ -1,0 +1,13 @@
+C:\Users\KangDain\Desktop\AutoBid\CMC_Program\CMC_Progrm\CMC_AutoBid\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\CMC_AutoBid.csproj.AssemblyReference.cache
+C:\Users\KangDain\Desktop\AutoBid\CMC_Program\CMC_Progrm\CMC_AutoBid\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\App.g.i.cs
+C:\Users\KangDain\Desktop\AutoBid\CMC_Program\CMC_Progrm\CMC_AutoBid\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\App.g.cs
+C:\Users\KangDain\Desktop\AutoBid\CMC_Program\CMC_Progrm\CMC_AutoBid\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\MainWindow.g.i.cs
+C:\Users\KangDain\Desktop\AutoBid\CMC_Program\CMC_Progrm\CMC_AutoBid\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\MainWindow.g.cs
+C:\Users\KangDain\Desktop\AutoBid\CMC_Program\CMC_Progrm\CMC_AutoBid\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\ShellPage.g.i.cs
+C:\Users\KangDain\Desktop\AutoBid\CMC_Program\CMC_Progrm\CMC_AutoBid\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\ShellPage.g.cs
+C:\Users\KangDain\Desktop\AutoBid\CMC_Program\CMC_Progrm\CMC_AutoBid\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\App.xaml
+C:\Users\KangDain\Desktop\AutoBid\CMC_Program\CMC_Progrm\CMC_AutoBid\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\MainWindow.xaml
+C:\Users\KangDain\Desktop\AutoBid\CMC_Program\CMC_Progrm\CMC_AutoBid\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\ShellPage.xaml
+C:\Users\KangDain\Desktop\AutoBid\CMC_Program\CMC_Progrm\CMC_AutoBid\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\App.xbf
+C:\Users\KangDain\Desktop\AutoBid\CMC_Program\CMC_Progrm\CMC_AutoBid\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\MainWindow.xbf
+C:\Users\KangDain\Desktop\AutoBid\CMC_Program\CMC_Progrm\CMC_AutoBid\obj\x64\Debug\net6.0-windows10.0.19041.0\win10-x64\ShellPage.xbf
