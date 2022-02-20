@@ -509,11 +509,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KangDain\\Desktop\\WPF_autoBid\\WPF_autoBid\\WPF_autoBid.csproj",
+      "projectUniqueName": "C:\\Users\\KangDain\\Desktop\\AutoBid\\CMC_Program\\CMC_Progrm\\WPF_autoBid\\WPF_autoBid\\WPF_autoBid.csproj",
       "projectName": "WPF_autoBid",
-      "projectPath": "C:\\Users\\KangDain\\Desktop\\WPF_autoBid\\WPF_autoBid\\WPF_autoBid.csproj",
+      "projectPath": "C:\\Users\\KangDain\\Desktop\\AutoBid\\CMC_Program\\CMC_Progrm\\WPF_autoBid\\WPF_autoBid\\WPF_autoBid.csproj",
       "packagesPath": "C:\\Users\\KangDain\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KangDain\\Desktop\\WPF_autoBid\\WPF_autoBid\\obj\\",
+      "outputPath": "C:\\Users\\KangDain\\Desktop\\AutoBid\\CMC_Program\\CMC_Progrm\\WPF_autoBid\\WPF_autoBid\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

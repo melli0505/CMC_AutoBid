@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A8YD90WDnGq8BRYhgMvsmtxOCV7xvUi8B76e9YlOBMLliofkB292ZPQc4eqNaguXzQ93bcN0S2NbieKKMou8uw==",
+  "dgSpecHash": "XKyffiGhrwQJYTcBHspH0lDsQYdZZShlDjEwP8w3wbkh2NYyWlhodcybgwUwFa0ulLdSPcAjBAhibQ7n1Elg8Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\KangDain\\Desktop\\WPF_autoBid\\WPF_autoBid\\WPF_autoBid.csproj",
+  "projectFilePath": "C:\\Users\\KangDain\\Desktop\\AutoBid\\CMC_Program\\CMC_Progrm\\WPF_autoBid\\WPF_autoBid\\WPF_autoBid.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\KangDain\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "C:\\Users\\KangDain\\.nuget\\packages\\microsoft.win32.systemevents\\4.5.0\\microsoft.win32.systemevents.4.5.0.nupkg.sha512",

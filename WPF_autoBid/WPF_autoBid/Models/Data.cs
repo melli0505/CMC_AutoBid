@@ -10,7 +10,7 @@ namespace SetUnitPriceByExcel
         // public static String folder = Windows.Storage.ApplicationData.Current.LocalFolder;
         // WPF 앱 파일 관리 변수
         public static string XlsText;
-        public static IReadOnlyList<String> XlsFiles;
+        public static IReadOnlyList<FileStream> XlsFiles;
         public static string BidText;
         public static FileStream BidFile;
         public static bool CanCovertFile = false; // 새로운 파일 업로드 시 변환 가능

@@ -63,6 +63,7 @@ namespace CMC_AutoBid
             openFileDialog.Multiselect = false;
             openFileDialog.Filter = "BID Files (*.BID)|*.BID|All files (*.*)|*.*";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
             if (openFileDialog.ShowDialog() == true)
             {
                 // 복사 파일 저장 폴더 생성
@@ -83,7 +84,7 @@ namespace CMC_AutoBid
                     // 파일 복사
                     using (FileStream SourceStream = File.Open(openFileDialog.FileName, FileMode.Open))
                     {
-                        using (FileStream DestinationStream = File.Create(copiedFolder + "공내역BID.BID")) // TODO : access denied 에러 수정
+                        using (FileStream DestinationStream = File.Create(copiedFolder + "\\" + System.IO.Path.GetFileName(openFileDialog.FileName))) 
                         {
                             await SourceStream.CopyToAsync(DestinationStream);
                             file = DestinationStream;
@@ -111,17 +112,62 @@ namespace CMC_AutoBid
             }
         }
 
-        private void XlsOpenClick(object sender, RoutedEventArgs e)
+        private async void XlsOpenClick(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = true;
-            openFileDialog.Filter = "XML 파일 (*.xls|*.xlsx)|*.xls, *.xlsx|All files (*.*)|*.*";
+            openFileDialog.Filter = "Xls 파일(*.xls,*.xlsx,*.XLS)|*.xls,*.xlsx,*.XLS|All files (*.*)|*.*"; // TODO : 왜 안 먹냐?
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
             if (openFileDialog.ShowDialog() == true)
             {
-                DisplayDialog("test xlsx", "Test");
-                //          foreach (string filename in openFileDialog.FileNames)
-                //              XlsList.Items.Add(System.IO.Path.GetFileName(filename));
+                String copiedFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Actual Xlsx";
+                StringBuilder output = new StringBuilder();
+
+                if (!Directory.Exists(copiedFolder)) // 이미 폴더가 있지 않은 경우
+                {
+
+                    // directory permission
+                    Directory.CreateDirectory(copiedFolder);
+                    DirectoryInfo info = new DirectoryInfo(copiedFolder);
+                    info.Attributes &= ~FileAttributes.ReadOnly; // not read only 
+                    
+                    // access control
+                    DirectorySecurity security = info.GetAccessControl();
+                    security.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), FileSystemRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
+                    info.SetAccessControl(security);
+
+                    foreach (string filepath in openFileDialog.FileNames)
+                    {
+                        IReadOnlyList<FileStream> files = Data.XlsFiles;
+                        String filename = System.IO.Path.GetFileName(filepath);
+                        output.Append(filename + "\n");
+                        // 파일 복사
+
+                        using FileStream SourceStream = File.Open(filepath, FileMode.Open);
+                        using FileStream DestinationStream = File.Create(copiedFolder + "\\" + filename);
+                        await SourceStream.CopyToAsync(DestinationStream);
+                        // TODO : null...이라 append 안된다는데 지금 먼소리임
+                        // _ = files.Append(DestinationStream); 
+                    }
+
+                    Data.XlsText = output.ToString();
+                    XlsList.Text = Data.XlsText;
+
+                    Data.CanCovertFile = true;
+                    Data.IsConvert = false;
+                }
+                else
+                {
+                    DisplayDialog("Actual Xlsx 폴더가 이미 존재합니다.", "Error");
+                    Data.CanCovertFile = false;
+                    Data.IsConvert = false;
+                }
+            }
+            else
+            {
+                DisplayDialog("파일을 업로드 해주세요.", "Error");
+                Data.XlsFiles = null;
             }
         }
     }
