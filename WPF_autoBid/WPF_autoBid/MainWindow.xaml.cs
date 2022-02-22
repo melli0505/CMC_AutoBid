@@ -88,8 +88,10 @@ namespace CMC_AutoBid
                         {
                             await SourceStream.CopyToAsync(DestinationStream);
                             file = DestinationStream;
+                            DisplayDialog(DestinationStream.Name, "확인");
                         }
                     }
+
                     Data.BidText = System.IO.Path.GetFileName(openFileDialog.FileName);
                     BIDList.Text = Data.BidText;
                     Data.BidFile = file;
@@ -116,7 +118,7 @@ namespace CMC_AutoBid
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = true;
-            openFileDialog.Filter = "Xls 파일(*.xls,*.xlsx,*.XLS)|*.xls,*.xlsx,*.XLS|All files (*.*)|*.*"; // TODO : 왜 안 먹냐?
+            openFileDialog.Filter = "Xls 파일(*.xls, *.xlsx)|*.xls;*.xlsx|All files (*.*)|*.*"; // TODO : 왜 안 먹냐?
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
             if (openFileDialog.ShowDialog() == true)
@@ -136,26 +138,35 @@ namespace CMC_AutoBid
                     DirectorySecurity security = info.GetAccessControl();
                     security.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), FileSystemRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
                     info.SetAccessControl(security);
+                    
+                    int filenum = openFileDialog.FileNames.Length;
+                    List<FileStream> files = new List<FileStream>(new FileStream[filenum]);
+                    int count = 0;
 
                     foreach (string filepath in openFileDialog.FileNames)
                     {
-                        IReadOnlyList<FileStream> files = Data.XlsFiles;
                         String filename = System.IO.Path.GetFileName(filepath);
                         output.Append(filename + "\n");
                         // 파일 복사
 
-                        using FileStream SourceStream = File.Open(filepath, FileMode.Open);
-                        using FileStream DestinationStream = File.Create(copiedFolder + "\\" + filename);
-                        await SourceStream.CopyToAsync(DestinationStream);
-                        // TODO : null...이라 append 안된다는데 지금 먼소리임
-                        // _ = files.Append(DestinationStream); 
+                        using (FileStream SourceStream = File.Open(filepath, FileMode.Open))
+                        {
+                            using (FileStream DestinationStream = File.Create(copiedFolder + "\\" + filename))
+                            {
+                                await SourceStream.CopyToAsync(DestinationStream);
+                                files[count] = DestinationStream;
+                            }
+                        }
+                        count ++;
                     }
 
+                    Data.XlsFiles = files;
                     Data.XlsText = output.ToString();
                     XlsList.Text = Data.XlsText;
 
                     Data.CanCovertFile = true;
                     Data.IsConvert = false;
+                    count = 0;
                 }
                 else
                 {
